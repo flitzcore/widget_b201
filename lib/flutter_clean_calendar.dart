@@ -165,8 +165,11 @@ class _CalendarState extends State<Calendar> {
         .toList();
     initializeDateFormatting(widget.locale, null).then((_) => setState(() {
           var monthFormat =
+              DateFormat('M', widget.locale).format(_selectedDate);
+          var yearFormat =
               DateFormat('yyyy', widget.locale).format(_selectedDate);
-          displayMonth = '${monthFormat.toUpperCase()}';
+          displayMonth =
+              '${widget.monthName[int.parse(monthFormat) - 1]} ${yearFormat}';
         }));
     _selectedEvents = widget.events?[DateTime(
             _selectedDate.year, _selectedDate.month, _selectedDate.day)] ??
@@ -504,10 +507,11 @@ class _CalendarState extends State<Calendar> {
           Utils.daysInRange(firstDayOfCurrentWeek, lastDayOfCurrentWeek)
               .toList();
       selectedMonthsDays = _daysInMonth(_selectedDate);
-      var monthFormat =
-          DateFormat('MMM yyyy', widget.locale).format(_selectedDate);
+
+      var monthFormat = DateFormat('M', widget.locale).format(_selectedDate);
+      var yearFormat = DateFormat('yyyy', widget.locale).format(_selectedDate);
       displayMonth =
-          '${monthFormat[0].toUpperCase()}${monthFormat.substring(1)}';
+          '${widget.monthName[int.parse(monthFormat) - 1]} ${yearFormat}';
       _selectedEvents = widget.events?[DateTime(
               _selectedDate.year, _selectedDate.month, _selectedDate.day)] ??
           [];
@@ -523,10 +527,10 @@ class _CalendarState extends State<Calendar> {
       var lastDateOfNewMonth = Utils.lastDayOfMonth(_selectedDate);
       updateSelectedRange(firstDateOfNewMonth, lastDateOfNewMonth);
       selectedMonthsDays = _daysInMonth(_selectedDate);
-      var monthFormat =
-          DateFormat('MMM yyyy', widget.locale).format(_selectedDate);
+      var monthFormat = DateFormat('M', widget.locale).format(_selectedDate);
+      var yearFormat = DateFormat('yyyy', widget.locale).format(_selectedDate);
       displayMonth =
-          '${monthFormat[0].toUpperCase()}${monthFormat.substring(1)}';
+          '${widget.monthName[int.parse(monthFormat) - 1]} ${yearFormat}';
       _selectedEvents = widget.events?[DateTime(
               _selectedDate.year, _selectedDate.month, _selectedDate.day)] ??
           [];
@@ -541,10 +545,10 @@ class _CalendarState extends State<Calendar> {
       var lastDateOfNewMonth = Utils.lastDayOfMonth(_selectedDate);
       updateSelectedRange(firstDateOfNewMonth, lastDateOfNewMonth);
       selectedMonthsDays = _daysInMonth(_selectedDate);
-      var monthFormat =
-          DateFormat('MMM yyyy', widget.locale).format(_selectedDate);
+      var monthFormat = DateFormat('M', widget.locale).format(_selectedDate);
+      var yearFormat = DateFormat('yyyy', widget.locale).format(_selectedDate);
       displayMonth =
-          '${monthFormat[0].toUpperCase()}${monthFormat.substring(1)}';
+          '${widget.monthName[int.parse(monthFormat) - 1]} ${yearFormat}';
       _selectedEvents = widget.events?[DateTime(
               _selectedDate.year, _selectedDate.month, _selectedDate.day)] ??
           [];
@@ -561,10 +565,10 @@ class _CalendarState extends State<Calendar> {
       selectedWeekDays =
           Utils.daysInRange(firstDayOfCurrentWeek, lastDayOfCurrentWeek)
               .toList();
-      var monthFormat =
-          DateFormat('MMM yyyy', widget.locale).format(_selectedDate);
+      var monthFormat = DateFormat('M', widget.locale).format(_selectedDate);
+      var yearFormat = DateFormat('yyyy', widget.locale).format(_selectedDate);
       displayMonth =
-          '${monthFormat[0].toUpperCase()}${monthFormat.substring(1)}';
+          '${widget.monthName[int.parse(monthFormat) - 1]} ${yearFormat}';
       _selectedEvents = widget.events?[DateTime(
               _selectedDate.year, _selectedDate.month, _selectedDate.day)] ??
           [];
@@ -581,10 +585,10 @@ class _CalendarState extends State<Calendar> {
       selectedWeekDays =
           Utils.daysInRange(firstDayOfCurrentWeek, lastDayOfCurrentWeek)
               .toList();
-      var monthFormat =
-          DateFormat('MMM yyyy', widget.locale).format(_selectedDate);
+      var monthFormat = DateFormat('M', widget.locale).format(_selectedDate);
+      var yearFormat = DateFormat('yyyy', widget.locale).format(_selectedDate);
       displayMonth =
-          '${monthFormat[0].toUpperCase()}${monthFormat.substring(1)}';
+          '${widget.monthName[int.parse(monthFormat) - 1]} ${yearFormat}';
       _selectedEvents = widget.events?[DateTime(
               _selectedDate.year, _selectedDate.month, _selectedDate.day)] ??
           [];
