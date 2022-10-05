@@ -1,7 +1,7 @@
 import 'package:intl/intl.dart';
 
 class Utils {
-  static final DateFormat _monthFormat = DateFormat('MMMM yyyy');
+  static final DateFormat _monthFormat = DateFormat('MMM yyyy');
   static final DateFormat _dayFormat = DateFormat('dd');
   static final DateFormat _firstDayFormat = DateFormat('MMM dd');
   static final DateFormat _fullDayFormat = DateFormat('EEE MMM dd, yyyy');

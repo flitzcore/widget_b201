@@ -86,6 +86,7 @@ class Calendar extends StatefulWidget {
   final DateTime? initialDate;
   final bool isExpanded;
   final List<String> weekDays;
+  final List<String> monthName;
   final String? locale;
   final bool startOnMonday;
   final bool hideBottomBar;
@@ -116,13 +117,27 @@ class Calendar extends StatefulWidget {
     this.initialDate,
     this.isExpanded = false,
     this.weekDays = const ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+    this.monthName = const [
+      'JAN',
+      'FEB',
+      'MAR',
+      'APR',
+      'MEI',
+      'JUN',
+      'JUL',
+      'AGS',
+      'SEP',
+      'OKT',
+      'NOV',
+      'DES'
+    ],
     this.locale = 'en_US',
     this.startOnMonday = false,
     this.dayOfWeekStyle,
     this.bottomBarTextStyle,
     this.bottomBarArrowColor,
     this.bottomBarColor,
-    this.expandableDateFormat = 'EEEE MMMM dd, yyyy',
+    this.expandableDateFormat = 'EEEE MMM dd, yyyy',
   });
 
   @override
@@ -150,9 +165,8 @@ class _CalendarState extends State<Calendar> {
         .toList();
     initializeDateFormatting(widget.locale, null).then((_) => setState(() {
           var monthFormat =
-              DateFormat('MMMM yyyy', widget.locale).format(_selectedDate);
-          displayMonth =
-              '${monthFormat[0].toUpperCase()}${monthFormat.substring(1)}';
+              DateFormat('yyyy', widget.locale).format(_selectedDate);
+          displayMonth = '${monthFormat.toUpperCase()}';
         }));
     _selectedEvents = widget.events?[DateTime(
             _selectedDate.year, _selectedDate.month, _selectedDate.day)] ??
@@ -491,7 +505,7 @@ class _CalendarState extends State<Calendar> {
               .toList();
       selectedMonthsDays = _daysInMonth(_selectedDate);
       var monthFormat =
-          DateFormat('MMMM yyyy', widget.locale).format(_selectedDate);
+          DateFormat('MMM yyyy', widget.locale).format(_selectedDate);
       displayMonth =
           '${monthFormat[0].toUpperCase()}${monthFormat.substring(1)}';
       _selectedEvents = widget.events?[DateTime(
@@ -510,7 +524,7 @@ class _CalendarState extends State<Calendar> {
       updateSelectedRange(firstDateOfNewMonth, lastDateOfNewMonth);
       selectedMonthsDays = _daysInMonth(_selectedDate);
       var monthFormat =
-          DateFormat('MMMM yyyy', widget.locale).format(_selectedDate);
+          DateFormat('MMM yyyy', widget.locale).format(_selectedDate);
       displayMonth =
           '${monthFormat[0].toUpperCase()}${monthFormat.substring(1)}';
       _selectedEvents = widget.events?[DateTime(
@@ -528,7 +542,7 @@ class _CalendarState extends State<Calendar> {
       updateSelectedRange(firstDateOfNewMonth, lastDateOfNewMonth);
       selectedMonthsDays = _daysInMonth(_selectedDate);
       var monthFormat =
-          DateFormat('MMMM yyyy', widget.locale).format(_selectedDate);
+          DateFormat('MMM yyyy', widget.locale).format(_selectedDate);
       displayMonth =
           '${monthFormat[0].toUpperCase()}${monthFormat.substring(1)}';
       _selectedEvents = widget.events?[DateTime(
@@ -548,7 +562,7 @@ class _CalendarState extends State<Calendar> {
           Utils.daysInRange(firstDayOfCurrentWeek, lastDayOfCurrentWeek)
               .toList();
       var monthFormat =
-          DateFormat('MMMM yyyy', widget.locale).format(_selectedDate);
+          DateFormat('MMM yyyy', widget.locale).format(_selectedDate);
       displayMonth =
           '${monthFormat[0].toUpperCase()}${monthFormat.substring(1)}';
       _selectedEvents = widget.events?[DateTime(
@@ -568,7 +582,7 @@ class _CalendarState extends State<Calendar> {
           Utils.daysInRange(firstDayOfCurrentWeek, lastDayOfCurrentWeek)
               .toList();
       var monthFormat =
-          DateFormat('MMMM yyyy', widget.locale).format(_selectedDate);
+          DateFormat('MMM yyyy', widget.locale).format(_selectedDate);
       displayMonth =
           '${monthFormat[0].toUpperCase()}${monthFormat.substring(1)}';
       _selectedEvents = widget.events?[DateTime(
