@@ -84,14 +84,14 @@ class CalendarTile extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.all(1.0),
           child: Container(
-            alignment: Alignment.center,
+            alignment: Alignment.topCenter,
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
                 // Date display
-
                 Container(
                   padding: const EdgeInsets.all(5),
+                  margin: const EdgeInsets.only(bottom: 2),
                   // If this tile is the selected date, draw a colored circle on it. The circle is filled with
                   // the color passed with the selectedColor parameter or red color.
                   decoration: isSelected && date != null
@@ -119,21 +119,21 @@ class CalendarTile extends StatelessWidget {
                                         .grey), // Grey color for previous or next months dates
                   ),
                 ),
-                // Dots for the events
+                // line for the events
                 events != null && events!.length > 0
-                    ? Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
+                    ? Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
                         children: events!.map((event) {
                           eventCount++;
-                          // Show a maximum of 3 dots.
-                          if (eventCount > 3) return Container();
+                          // Show a maximum of 7 lines.
+                          if (eventCount > 5) return Container();
                           return Container(
                             margin: EdgeInsets.only(
-                                left: 2.0, right: 2.0, top: 1.0),
-                            width: 5.0,
-                            height: 5.0,
+                                left: 20.0, right: 20.0, top: 1.0),
+                            // width: 5.0,
+                            height: 3.0,
                             decoration: BoxDecoration(
-                                shape: BoxShape.circle,
+                                borderRadius: BorderRadius.circular(15),
                                 // If event is done (isDone == true) set the color of the dots to
                                 // the eventDoneColor (if given) otherwise use the primary color of
                                 // the theme
@@ -141,12 +141,12 @@ class CalendarTile extends StatelessWidget {
                                 // color property of the CleanCalendarEvent. If both aren't set, then
                                 // the accent color of the theme get used.
                                 color: (() {
-                                  if (event.isDone)
-                                    return eventDoneColor ??
-                                        Theme.of(context).primaryColor;
-                                  if (isSelected)
-                                    Theme.of(context)
-                                        .primaryColor; //return Colors.white;
+                                  //             if (event.isDone)
+                                  //             return eventDoneColor ??
+                                  //                 Theme.of(context).primaryColor;
+                                  //           if (isSelected)
+                                  //            Theme.of(context)
+                                  //                .primaryColor; //return Colors.white;
                                   return eventColor ??
                                       Theme.of(context).accentColor;
                                 }())),

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'clean_calendar_event.dart';
-import 'flutter_clean_calendar.dart';
+import 'clean_calendar_widget.dart';
 
 Color redPrimary = const Color.fromARGB(255, 237, 29, 36);
 
@@ -105,7 +105,6 @@ class _CalendarScreenState extends State<CalendarScreen> {
           eventDoneColor: Colors.grey,
           selectedColor: redPrimary,
           todayColor: redPrimary,
-          eventColor: redPrimary,
           hideTodayIcon: true,
           locale: 'de_DE',
           isExpanded: true,
