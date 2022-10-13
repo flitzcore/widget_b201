@@ -260,7 +260,7 @@ class _CalendarState extends State<Calendar> {
           CalendarTile(
             selectedColor: widget.selectedColor,
             todayColor: widget.todayColor,
-            eventColor: widget.eventColor,
+            // eventColor: widget.eventColor,
             eventDoneColor: widget.eventDoneColor,
             events: widget.events![day],
             isDayOfWeek: true,
@@ -300,7 +300,7 @@ class _CalendarState extends State<Calendar> {
             CalendarTile(
               selectedColor: widget.selectedColor,
               todayColor: widget.todayColor,
-              eventColor: widget.eventColor,
+              // eventColor: widget.eventColor,
               eventDoneColor: widget.eventDoneColor,
               events: widget.events![day],
               child: widget.dayBuilder!(context, day),
@@ -313,7 +313,7 @@ class _CalendarState extends State<Calendar> {
             CalendarTile(
                 selectedColor: widget.selectedColor,
                 todayColor: widget.todayColor,
-                eventColor: widget.eventColor,
+                // eventColor: widget.eventColor,
                 eventDoneColor: widget.eventDoneColor,
                 events: widget.events![day],
                 onDateSelected: () => handleSelectedDateAndUserCallback(day),

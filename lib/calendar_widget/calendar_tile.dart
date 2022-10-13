@@ -38,7 +38,7 @@ class CalendarTile extends StatelessWidget {
   final Widget? child;
   final Color? selectedColor;
   final Color? todayColor;
-  final Color? eventColor;
+  //final Color? eventColor;
   final Color? eventDoneColor;
 
   CalendarTile({
@@ -54,7 +54,7 @@ class CalendarTile extends StatelessWidget {
     this.events,
     this.selectedColor,
     this.todayColor,
-    this.eventColor,
+    //this.eventColor,
     this.eventDoneColor,
   });
 
@@ -90,7 +90,7 @@ class CalendarTile extends StatelessWidget {
               children: <Widget>[
                 // Date display
                 Container(
-                  padding: const EdgeInsets.all(5),
+                  padding: const EdgeInsets.all(3),
                   margin: const EdgeInsets.only(bottom: 2),
                   // If this tile is the selected date, draw a colored circle on it. The circle is filled with
                   // the color passed with the selectedColor parameter or red color.
@@ -126,31 +126,31 @@ class CalendarTile extends StatelessWidget {
                         children: events!.map((event) {
                           eventCount++;
                           // Show a maximum of 7 lines.
-                          if (eventCount > 5) return Container();
+                          if (eventCount > 7) return Container();
                           return Container(
-                            margin: EdgeInsets.only(
-                                left: 20.0, right: 20.0, top: 1.0),
-                            // width: 5.0,
-                            height: 3.0,
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(15),
-                                // If event is done (isDone == true) set the color of the dots to
-                                // the eventDoneColor (if given) otherwise use the primary color of
-                                // the theme
-                                // If the event is now donw yet, we use the given eventColor or the
-                                // color property of the CleanCalendarEvent. If both aren't set, then
-                                // the accent color of the theme get used.
-                                color: (() {
+                              margin: EdgeInsets.only(
+                                  left: 15.0, right: 15.0, top: 1.0),
+                              // width: 5.0,
+                              height: 3,
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(15),
+                                  // If event is done (isDone == true) set the color of the dots to
+                                  // the eventDoneColor (if given) otherwise use the primary color of
+                                  // the theme
+                                  // If the event is now donw yet, we use the given eventColor or the
+                                  // color property of the CleanCalendarEvent. If both aren't set, then
+                                  // the accent color of the theme get used.
+                                  color: events![eventCount - 1].color //(() {
                                   //             if (event.isDone)
                                   //             return eventDoneColor ??
                                   //                 Theme.of(context).primaryColor;
                                   //           if (isSelected)
                                   //            Theme.of(context)
                                   //                .primaryColor; //return Colors.white;
-                                  return eventColor ??
-                                      Theme.of(context).accentColor;
-                                }())),
-                          );
+                                  /// return eventColor ??
+                                  // Theme.of(context).accentColor;
+                                  // }())),
+                                  ));
                         }).toList())
                     : Container(),
               ],
