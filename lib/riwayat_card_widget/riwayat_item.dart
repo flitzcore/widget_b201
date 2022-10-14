@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import 'currency_formatter.dart';
 
@@ -26,17 +27,18 @@ class RiwayatItem extends StatelessWidget {
             children: <Widget>[
               Text(
                 CurrencyFormat.convertToIdr(nominal, 0),
-                style: TextStyle(
-                    fontSize: 18,
-                    fontFamily: 'Poppins',
-                    fontWeight: FontWeight.w500),
+                style: GoogleFonts.poppins(
+                  fontSize: 18,
+                  fontWeight: FontWeight.w500,
+                ),
               ),
               Text(
                 "Tanggal Pembayaran $date",
-                style: TextStyle(
-                    fontSize: 10,
-                    fontFamily: 'Poppins',
-                    color: Color.fromARGB(255, 198, 198, 198)),
+                style: GoogleFonts.poppins(
+                  fontSize: 10,
+                  color: Color.fromARGB(255, 198, 198, 198),
+                  fontWeight: FontWeight.w500,
+                ),
               )
             ],
           ),
